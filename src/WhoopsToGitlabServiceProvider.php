@@ -38,7 +38,7 @@ class WhoopsToGitlabServiceProvider extends ServiceProvider
         } elseif ($this->app instanceof LumenApplication) {
             $this->app->configure('whoops-to-gitlab');
         }
-        $this->mergeConfigFrom($source, 'gitlab');
+        $this->mergeConfigFrom($source, 'gitlab');  
     }
 
     /**
