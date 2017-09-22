@@ -31,6 +31,7 @@ class WhoopsToGitlabServiceProvider extends ServiceProvider
      */
     protected function setupConfig()
     {
+        $source = realpath(__DIR__.'/../config/whoops-to-gitlab.php');
 
         if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
             $this->publishes([$source => config_path('whoops-to-gitlab.php')]);
