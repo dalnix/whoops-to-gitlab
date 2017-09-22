@@ -1,6 +1,6 @@
 {
   "name": "slaxxarn/whoops-to-gitlab",
-  "description": "A possibility to allow tour users to send an issue to gitlab upon Whoops",
+  "description": "A possibility to allow your users to send an issue to gitlab upon Whoops",
   "license": "MIT",
   "keywords": ["laravel", "gitlab", "git", "api"],
   "authors": [
