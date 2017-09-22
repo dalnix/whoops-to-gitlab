@@ -1,0 +1,45 @@
+{
+  "name": "slaxxarn/whoops-to-gitlab",
+  "description": "A possibility to allow tour users to send an issue to gitlab upon Whoops",
+  "license": "MIT",
+  "keywords": ["laravel", "gitlab", "git", "api"],
+  "authors": [
+    {
+      "name": "Christian Janbjer",
+      "email": "christian@dalnix.se",
+      "homepage": "https://dalnix.se"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "vlucas/phpdotenv": "~2.2",
+    "m4tthumphrey/php-gitlab-api": "^9.3",
+    "php-http/guzzle6-adapter": "^1.1"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Dalnix\\WhoopsToGitlab\\": "src/"
+    }
+  },
+  "autoload-dev": {
+
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "extra": {
+
+    "laravel": {
+      "providers": [
+        "Dalnix\\WhoopsToGitlab\\WhoopsToGitlabServiceProvider"
+      ],
+      "aliases": {
+        "WhoopsToGitlab": "Dalnix\\WhoopsToGitlab\\Facades\\WhoopsToGitlab"
+      }
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
