@@ -1,15 +1,18 @@
-<?php
+<?php namespace Dalnix\WhoopsToGitLab;
 
-
-namespace Dalnix\WhoopsToGitLab;
-
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Contracts\Foundation\Application as LaravelApplication;
+use Gitlab\Client;
+use Vinkla\GitLab\Facades\GitLab;
+use Vinkla\GitLab\GitLabServiceProvider;
 
 /**
  * This is the GitLab service provider class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class GitLabServiceProvider extends ServiceProvider
+class WhoopsToGitlabServiceProvider extends ServiceProvider
 {
     /**
      * Boot the service provider.
@@ -30,9 +33,13 @@ class GitLabServiceProvider extends ServiceProvider
     {
         $source = realpath(__DIR__.'/../config/whoops-to-gitlab.php');
 
+        if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
+            $this->publishes([$source => config_path('whoops-to-gitlab.php')]);
+        } elseif ($this->app instanceof LumenApplication) {
+            $this->app->configure('whoops-to-gitlab');
+        }
 
-
-        $this->mergeConfigFrom($source, 'gitlab');
+        $this->mergeConfigFrom($source, 'whoops-to-gitlab');
     }
 
     /**
@@ -42,48 +49,9 @@ class GitLabServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerFactory();
-        $this->registerManager();
-        $this->registerBindings();
+        $this->app->register(GitLabServiceProvider::class);
+        $this->app->bind('GitLab', function () { return new GitLab();});
     }
 
-    /**
-     * Register the factory class.
-     *
-     * @return void
-     */
-    protected function registerFactory()
-    {
 
-    }
-
-    /**
-     * Register the manager class.
-     *
-     * @return void
-     */
-    protected function registerManager()
-    {
-
-    }
-
-    /**
-     * Register the bindings.
-     *
-     * @return void
-     */
-    protected function registerBindings()
-    {
-
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return string[]
-     */
-    public function provides(): array
-    {
-
-    }
 }
