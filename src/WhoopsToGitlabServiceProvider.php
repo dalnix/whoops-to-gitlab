@@ -1,5 +1,8 @@
 <?php namespace Dalnix\WhoopsToGitLab;
 
+
+use Dalnix\WhoopsToGitlab\Exceptions\Handler;
+use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Foundation\Application as LaravelApplication;
@@ -31,14 +34,30 @@ class WhoopsToGitlabServiceProvider extends ServiceProvider
      */
     protected function setupConfig()
     {
-        $source = realpath(__DIR__.'/config/whoops-to-gitlab.php');
+        $source = realpath(__DIR__.'/config/gitlab.php');
 
         if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
-            $this->publishes([$source => config_path('whoops-to-gitlab.php')]);
+            $this->publishes([$source => config_path('gitlab.php')]);
         } elseif ($this->app instanceof LumenApplication) {
-            $this->app->configure('whoops-to-gitlab');
+            $this->app->configure('gitlab');
         }
-        $this->mergeConfigFrom($source, 'gitlab');  
+
+        require __DIR__ . '/../vendor/autoload.php';
+
+        $this->mergeConfigFrom($source, 'gitlab');
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        $this->loadViewsFrom(__DIR__.'/views', 'whoopsToGitlab');
+        $this->publishes(
+            [__DIR__ . '/views' => base_path('resources/views/vendor/whoops-to-gitlab')],
+            'views'
+        );
+
+
+        $this->app->bind(
+            ExceptionHandler::class,
+            Handler::class
+        );
     }
 
     /**
