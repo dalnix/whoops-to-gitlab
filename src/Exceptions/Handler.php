@@ -73,9 +73,6 @@ class Handler extends ExceptionHandler
             $user = null;
             if (Auth::user()) {
                $user = Auth::user()->select(config('gitlab.userObjectFields'))->first()->toArray();
-            } else {
-                Auth::loginUsingId(1);
-                $user = Auth::user()->select(config('gitlab.userObjectFields'))->first()->toArray();
             }
 
             $vars = [
