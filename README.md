@@ -16,9 +16,9 @@ php artisan vendor:publish --provider="Dalnix\WhoopsToGitLab\WhoopsToGitlabServi
 GITLAB_PROJECT_URL=( your gitlab project url : https://gitlab.domain.com/api/v4/projects/(project-ID)/ )
 GITLAB_TOKEN=( Personal gitlab token )
 
-SELECTED_BIN=(null or pastebin)
+SELECTED_BIN=(null or pastebin default null)
 PASTEBIN_API_DEV_KEY=( your api key )
-PASTEBIN_API_PASTE_PRIVATE=( 1 or 0  defailt 1)
+PASTEBIN_API_PASTE_PRIVATE=( 1 or 0  default 1)
 PASTEBIN_PASTE_EXPIRE_DATE=( default 10M )
 PASTEBIN_PASTE_EXPIRE_FORMAT=(default json )
 ```
