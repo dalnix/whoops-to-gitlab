@@ -245,6 +245,7 @@
         html += '<input type="hidden" name="_data" value="{{ json_encode($vars) }}">';
         html += '<div class="form-group"><label for="title">{{__("Issue title")}}</label><input type="hidden" value="AUTO: ' + vars.e.message + '" name="auto_title"><input type="text" class="form-control form_title" value="" name="title"></div>';
         html += '<div class="form-group"><label for="issue">{{__("Issue description")}}</label><textarea class="form-control form_description" name="description">';
+
         html += '\n\n\n<h3>Error table</h3>\n';
         html += '| Key | Value |\n'
                 + '| -------- | -------- |\n'
@@ -252,7 +253,12 @@
                 + '| file  | '+ vars.e.file +'|\n'
                 + '| line  | '+ vars.e.line +'|\n'
                 + '| code  | '+ vars.e.code +'|\n'
-                + '| prev  | '+ vars.e.prev +'|';
+                + '| prev  | '+ vars.e.prev +'|\n';
+        if (vars.user_id) {
+            html += '\r\n\r\nReported by user with id: ' + vars.user_id + '\r\n\r\n';
+        } else {
+            html += '<br><br>';
+        }
         html += '</textarea></div>';
         html += '</form>';
         modal.querySelector('.modal-content').innerHTML = html;
