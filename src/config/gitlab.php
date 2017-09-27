@@ -6,7 +6,7 @@ return [
         'url' => env('GITLAB_PROJECT_URL', null),
         'project' => env('GITLAB_PROJECT_ID', null),
     ],
-    'selected_bin' => 'pastebin',
+    'selected_bin' => env('SELECTED_BIN', null),
     'bins' => [
         'pastebin' => [
             'api_dev_key' => env('PASTEBIN_API_DEV_KEY', null),
