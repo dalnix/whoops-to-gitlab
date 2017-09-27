@@ -260,7 +260,7 @@
                 + '| prev  | '+ vars.e.prev +'|\n';
         if (vars.user) {
 
-            html += '\r\nReported by user\r\n';
+            html += '\r\nReported by user\r\n\r\n';
             for (var u in vars.user) {
                 html += u + ': ' + vars.user[u] + '<br>';
             }
