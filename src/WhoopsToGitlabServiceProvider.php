@@ -59,7 +59,10 @@ class WhoopsToGitlabServiceProvider extends ServiceProvider
             ExceptionHandler::class,
             Handler::class
         );
-
+        $this->app->bind(
+            'gitlab',
+            'Dalnix\WhoopsToGitlab\Gitlab'
+        );
     }
 
     /**
@@ -69,8 +72,7 @@ class WhoopsToGitlabServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register(GitLabServiceProvider::class);
-        $this->app->bind('GitLab', function () { return new GitLab();});
+
     }
 
 

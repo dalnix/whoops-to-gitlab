@@ -7,15 +7,15 @@ use Illuminate\Support\Facades\Facade;
  *
  * @author Christian Janbjer <christian@dalnix.se>
  */
-class WhoopsToGitlab extends Facade
+class Gitlab extends Facade
 {
     /**
      * Get the registered name of the component.
      *
      * @return string
      */
-    protected static function getFacadeAccessor(): string
+    protected static function getFacadeAccessor()
     {
-        return 'whoopstogitlab';
+        return 'gitlab';
     }
 }

@@ -1,13 +1,10 @@
 <?php
 
 return [
-    'default' => 'main',
-    'connections' => [
-        'main' => [
-            'token' => env('GITLAB_TOKEN', null),
-            'url' =>  env('GITLAB_PROJECT_URL', null),
-            'project' => env('GITLAB_PROJECT_ID', null),
-        ]
+    'connection' => [
+        'token' => env('GITLAB_TOKEN', null),
+        'url' => env('GITLAB_PROJECT_URL', null),
+        'project' => env('GITLAB_PROJECT_ID', null),
     ],
     'selected_bin' => 'pastebin',
     'bins' => [

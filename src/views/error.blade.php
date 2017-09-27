@@ -242,9 +242,18 @@
         modal.querySelector('.title').innerHTML = '{{__('Create issue on gitlab')}}';
         var html = '<form method="POST" action="{{route('whoopsToGitlab.post')}}">';
         html += '<input type="hidden" name="_token" value="{{ csrf_token() }}">';
-        html += '<input type="hidden" name="_data" value="{{ $vars }}">';
+        html += '<input type="hidden" name="_data" value="{{ json_encode($vars) }}">';
         html += '<div class="form-group"><label for="title">{{__("Issue title")}}</label><input type="hidden" value="AUTO: ' + vars.e.message + '" name="auto_title"><input type="text" class="form-control form_title" value="" name="title"></div>';
-        html += '<div class="form-group"><label for="issue">{{__("Issue description")}}</label><textarea class="form-control form_description" name="description"></textarea></div>';
+        html += '<div class="form-group"><label for="issue">{{__("Issue description")}}</label><textarea class="form-control form_description" name="description">';
+        html += '\n\n\n<h3>Error table</h3>\n';
+        html += '| Key | Value |\n'
+                + '| -------- | -------- |\n'
+                + '| Message   | '+ vars.e.message +' |\n'
+                + '| file  | '+ vars.e.file +'|\n'
+                + '| line  | '+ vars.e.line +'|\n'
+                + '| code  | '+ vars.e.code +'|\n'
+                + '| prev  | '+ vars.e.prev +'|';
+        html += '</textarea></div>';
         html += '</form>';
         modal.querySelector('.modal-content').innerHTML = html;
         showModal();

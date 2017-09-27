@@ -13,8 +13,7 @@
   "require": {
     "php": "^7.0",
     "vlucas/phpdotenv": "~2.2",
-    "php-http/guzzle6-adapter": "^1.1",
-    "vinkla/gitlab": "^4.1",
+    "guzzlehttp/guzzle": "~6.0",
     "camspiers/json-pretty": "1.0.*"
   },
   "require-dev": {
@@ -35,10 +34,7 @@
     "laravel": {
       "providers": [
         "Dalnix\\WhoopsToGitlab\\WhoopsToGitlabServiceProvider"
-      ],
-      "aliases": {
-        "WhoopsToGitlab": "Dalnix\\WhoopsToGitlab\\Facades\\WhoopsToGitlab"
-      }
+      ]
     }
   },
   "minimum-stability": "dev",
