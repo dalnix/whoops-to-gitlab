@@ -42,9 +42,6 @@ class WhoopsToGitlabServiceProvider extends ServiceProvider
             $this->app->configure('gitlab');
         }
 
-
-        require __DIR__ . '/../vendor/autoload.php';
-
         $this->mergeConfigFrom($source, 'gitlab');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
 
