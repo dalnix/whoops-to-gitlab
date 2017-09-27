@@ -70,6 +70,13 @@ class Handler extends ExceptionHandler
                     $label = null;
                 }
             }
+            $user = null;
+            if (Auth::user()) {
+               $user = Auth::user()->select(config('gitlab.userObjectFields'))->first()->toArray();
+            } else {
+                Auth::loginUsingId(1);
+                $user = Auth::user()->select(config('gitlab.userObjectFields'))->first()->toArray();
+            }
 
             $vars = [
                 'e' => [
@@ -88,7 +95,7 @@ class Handler extends ExceptionHandler
                     "Cookies" => $this->masked($_COOKIE, '_COOKIE'),
                     "Session" => isset($_SESSION) ? $this->masked($_SESSION, '_SESSION') : []
                 ],
-                'user_id' => Auth::check() ? Auth::user()->id : null,
+                'user' => $user,
                 'gitlab' => [
                     #'label' => $label
                 ]

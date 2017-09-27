@@ -14,5 +14,6 @@ return [
             'api_paste_expire_date' => env('PASTEBIN_PASTE_EXPIRE_DATE', '10M'),
             'api_paste_format' => env('PASTEBIN_PASTE_EXPIRE_FORMAT', 'json')
         ]
-    ]
+    ],
+    'userObjectFields' => ['id', 'name', 'email']
 ];

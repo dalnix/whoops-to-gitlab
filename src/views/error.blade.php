@@ -163,6 +163,10 @@
         .form-group .form-control {
             width: 100%;
         }
+
+        .form_description {
+            height: 200px;
+        }
     </style>
 </head>
 <body>
@@ -198,7 +202,7 @@
 
 <script>
     var vars = {!! $vars !!}
-            console.log(vars);
+
     var overlay = document.querySelector('.modal_overlay');
     var modal = document.querySelector('.modal');
     function closeModal() {
@@ -254,8 +258,12 @@
                 + '| line  | '+ vars.e.line +'|\n'
                 + '| code  | '+ vars.e.code +'|\n'
                 + '| prev  | '+ vars.e.prev +'|\n';
-        if (vars.user_id) {
-            html += '\r\n\r\nReported by user with id: ' + vars.user_id + '\r\n\r\n';
+        if (vars.user) {
+
+            html += '\r\nReported by user\r\n';
+            for (var u in vars.user) {
+                html += u + ': ' + vars.user[u] + '<br>';
+            }
         } else {
             html += '<br><br>';
         }
