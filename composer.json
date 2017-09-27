@@ -12,7 +12,6 @@
   ],
   "require": {
     "php": "^7.0",
-    "vlucas/phpdotenv": "~2.2",
     "guzzlehttp/guzzle": "~6.0",
     "camspiers/json-pretty": "1.0.*"
   },
