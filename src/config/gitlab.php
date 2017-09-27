@@ -9,13 +9,10 @@ return [
     'selected_bin' => 'pastebin',
     'bins' => [
         'pastebin' => [
-            'api_dev_key' => '17ced80b81162adcebdc6674306f5970',
-            'api_paste_private' => '1',
-            'api_paste_expire_date' => '10M',
-            'api_paste_format' => 'json'
-        ],
-        'dalnix' => [
-            'url' => 'https://privatebin.dalnix.se/'
+            'api_dev_key' => env('PASTEBIN_API_DEV_KEY', null),
+            'api_paste_private' =>  env('PASTEBIN_API_PASTE_PRIVATE', 1),
+            'api_paste_expire_date' => env('PASTEBIN_PASTE_EXPIRE_DATE', '10M'),
+            'api_paste_format' => env('PASTEBIN_PASTE_EXPIRE_FORMAT', 'json')
         ]
     ]
 ];
