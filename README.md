@@ -1,7 +1,7 @@
 Whoops to gitlab
 ======
 
-This package gives your users the option to create an issue on gitlab upon "Whoops" error when APP_DEBUG is set to false.
+This package gives your users the option to create an issue on gitlab upon "Whoops" error when APP_DEBUG is set to false. For laravel 5.4 and 5.5.
 
 ## Installation
 ```
