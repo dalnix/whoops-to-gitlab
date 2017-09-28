@@ -17,11 +17,7 @@ class WhoopsToGitlabServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->setupConfig();"laravel": {
-      "providers": [
-        "Dalnix\\WhoopsToGitlab\\WhoopsToGitlabServiceProvider"
-      ]
-    }
+        $this->setupConfig();
     }
 
     /**
