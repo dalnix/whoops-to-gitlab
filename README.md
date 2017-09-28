@@ -23,7 +23,7 @@ PASTEBIN_PASTE_EXPIRE_DATE=( default 10M )
 PASTEBIN_PASTE_EXPIRE_FORMAT=(default json )
 ```
 
-#### Add to you config/app
+#### Add to your config/app
 ```
 Dalnix\WhoopsToGitlab\WhoopsToGitlabServiceProvider::class
 ```
