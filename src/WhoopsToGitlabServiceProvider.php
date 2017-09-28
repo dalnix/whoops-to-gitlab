@@ -1,4 +1,4 @@
-<?php namespace Dalnix\WhoopsToGitLab;
+<?php namespace Dalnix\WhoopsToGitlab;
 
 
 use Dalnix\WhoopsToGitlab\Exceptions\Handler;
@@ -6,15 +6,8 @@ use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Foundation\Application as LaravelApplication;
-use Gitlab\Client;
-use Vinkla\GitLab\Facades\GitLab;
-use Vinkla\GitLab\GitLabServiceProvider;
 
-/**
- * This is the GitLab service provider class.
- *
- * @author Vincent Klaiber <hello@vinkla.com>
- */
+
 class WhoopsToGitlabServiceProvider extends ServiceProvider
 {
     /**
@@ -24,7 +17,11 @@ class WhoopsToGitlabServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->setupConfig();
+        $this->setupConfig();"laravel": {
+      "providers": [
+        "Dalnix\\WhoopsToGitlab\\WhoopsToGitlabServiceProvider"
+      ]
+    }
     }
 
     /**
