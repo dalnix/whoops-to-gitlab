@@ -54,7 +54,7 @@
             align-items: center;
             display: none;
             justify-content: center;
-            z-index: 10
+            z-index: 10;
         }
 
         .modal {
@@ -63,7 +63,7 @@
             height: auto;
             padding: 20px;
             background: #fff;
-            z-index: 15;
+            z-index: 999;
             color: #2a2a2a;
             max-height: 100vh;
             overflow-y: auto;
