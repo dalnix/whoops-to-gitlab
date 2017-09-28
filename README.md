@@ -22,4 +22,9 @@ PASTEBIN_API_PASTE_PRIVATE=( 1 or 0  default 1)
 PASTEBIN_PASTE_EXPIRE_DATE=( default 10M )
 PASTEBIN_PASTE_EXPIRE_FORMAT=(default json )
 ```
+
+#### Add to you config/app
+```
+Dalnix\WhoopsToGitlab\WhoopsToGitlabServiceProvider::class
+```
 ### This is still in development but works
