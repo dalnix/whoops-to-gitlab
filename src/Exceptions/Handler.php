@@ -98,7 +98,7 @@ class Handler extends ExceptionHandler
                 ]
             ];
 
-            return view('whoopsToGitlab::error')->with([
+            return response()->view('whoopsToGitlab::error', [
                 'request' => $request,
                 'vars' => json_encode($vars, JSON_PRETTY_PRINT)
             ]);
